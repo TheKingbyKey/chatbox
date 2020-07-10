@@ -1,0 +1,85 @@
+{%extends "template.html"%}
+{%block workbody%}
+<nav class="navbar navbar-light bg-light" style="background-color:#050154 !important;color:#d40072 !important">
+  <a class="navbar-brand" href="{{url_for('index')}}" style="color:#55d997 !important;font-weight:bold">
+    <img src="/static/chatbox.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+    Chat Box
+  </a>
+  <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+
+  </ul>
+  <form class="form-inline" id="login">
+  <div class="form-group mb-2">
+    <label for="username2" class="sr-only">username</label>
+    <input type="text"  name="username" class="form-control" id="username2" placeholder="username" required>
+    <small id = "log-username-Invalid" style="color:red;">Invalid Username!</small>
+  </div>
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="password2" class="sr-only">Password</label>
+    <input type="password" name="password" class="form-control" id="password2" placeholder="Password" required>
+    <small id = "log-password-Invalid" style="color:red;">Invalid Password!</small>
+
+  </div>
+  <button type="submit" class="btn btn-success mb-2">Login</button>
+</form >
+</nav>
+ <div class="container" style="padding-top:20px;margin-bottom:10rem" >
+   <h1 style="color:#55d997">Dive In!</h1>
+   <form id="signup">
+     <div class="form-group row">
+       <label for="name" class="col-sm-2 col-form-label">Name</label>
+       <div class="col-sm-10">
+         <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+       </div>
+     </div>
+  <div class="form-group row">
+    <label for="email" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+      <small id = "sign-email-Invalid" style="color:red;">Already Exist!</small>
+    </div>
+
+  </div>
+  <div class="form-group row">
+    <label for="username" class="col-sm-2 col-form-label">Username</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+      <small id = "sign-username-Invalid" style="color:red;">Already Exist!</small>
+
+
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="password" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-success">Sign up</button>
+    </div>
+  </div>
+</form>
+ </div>
+ <div class="container-fluid foot" style="padding:0px;height:10rem;margin-top:auto;">
+   <div class="row" style="margin:0px">
+     <div class="col">
+       <h5>contact detail:</h5>
+       <p>9910849028 <br>akshay99.arora@gmail.com <br>@rottenInk at Insta <br>KingbyKey at GitHub</p>
+     </div>
+     <div class="col">
+       <h5>address:</h5>
+       <p>1215 sikandarabad <br>bulandsher,NCR <br>UP,India</p>
+     </div>
+   </div>
+ </div>
+{%endblock%}
+
+{%block escript%}
+<script src="/static/rentry.js"></script>
+{%endblock%}
+
+{%block script%}
+<script src="/static/home.js"></script>
+{%endblock%}

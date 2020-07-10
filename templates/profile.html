@@ -1,0 +1,88 @@
+{%extends "template.html"%}
+{%block workbody%}
+
+<nav class="navbar navbar-light bg-light" style="background-color:#050154 !important;color:#d40072 !important">
+   <a class="navbar-brand" href="{{url_for('index')}}" style="color:#55d997 !important;font-weight:bold">
+   <img src="/static/chatbox.jpg" width="30" height="30" class="d-inline-block align-top" alt="">Chat Box</a>
+   <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex"></ul>
+   <a class="navbar-brand" id="username" href="{{url_for('room')}}" style="color:#55d997 !important;font-weight:bold"></a>
+   <a class="btn btn-success mobile" data-toggle="collapse" href="#mobilechannel" role="button" aria-expanded="true" aria-controls="mobilechannel" style="float:right;">Channels</a>
+   <a class="btn btn-success" id ="logout" href="">Logout</a>
+</nav>
+<div class="container-fluid" style="margin:0px;padding:0px">
+  <div class="row " style="margin:0px;padding:0px">
+      <div class="col-3 minor" id = "mobilechannel" style="margin:0px;padding:10px;background-color:#2b3b3a;padding-top:20px;">
+        <h5 style="color:#55d997" class="dekstop">Channels</h5>
+        <hr>
+
+
+        <div style="padding:5px;">
+
+            <table id="dekstopchannels" class="table table-hover table-dark scroll">
+
+            </table>
+
+        </div>
+      </div>
+
+      <div class="col-9 major" style="word-wrap:break-word;text-align:center">
+          <div class="circular--landscape">
+            <img id = "profile" src="/static/uploads/profile/profile.png" alt="image">
+          </div>
+          <br><br>
+          <table id="show-info" class="table table-dark">
+  <tbody>
+    <tr>
+      <td></td>
+      <th scope="row" id="user">Username</th>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <th scope="row" id="name">Name</th>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <th scope="row" id="email">Email</th>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <th scope="row" id="address">Adress</th>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <th scope="row" id="company">Company</th>
+       <td></td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+</div>
+</div>
+
+{%endblock%}
+
+{%block escript%}
+  <script src="/static/entry.js"></script>
+{%endblock%}
+
+{%block script%}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <script type="text/javascript">
+    localStorage.setItem("variable","{{username}}");
+  </script>
+  <script src="/static/profile.js"></script>
+  <script id = "channellist" type="text/template">
+      {% raw -%}
+       {{#each values}}
+        <tr>
+          <td><button type="button" class="btn btn-link channelLink">{{this}}</button></td>
+        </tr>
+       {{/each}}
+      {%- endraw %}
+  </script>
+{%endblock%}

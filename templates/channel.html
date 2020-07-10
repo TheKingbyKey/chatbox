@@ -1,0 +1,85 @@
+{%extends "template.html"%}
+{%block workbody%}
+<button type="button" name="button" style="display:none" id="joinroom">haha</button>
+<nav class="navbar navbar-light bg-light" style="background-color:#050154 !important;color:#d40072 !important">
+   <a class="navbar-brand" href="{{url_for('index')}}" style="color:#55d997 !important;font-weight:bold">
+   <img src="/static/chatbox.jpg" width="30" height="30" class="d-inline-block align-top" alt="">Chat Box</a>
+   <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex"></ul>
+   <a class="navbar-brand" id="username" href="http://localhost:5000/" style="color:#55d997 !important;font-weight:bold"></a>
+   <a class="btn btn-success mobile" data-toggle="collapse" href="#mobilechannel" role="button" aria-expanded="true" aria-controls="mobilechannel" style="float:right;">Channels</a>
+   <a class="btn btn-success" id ="logout" href="">Logout</a>
+</nav>
+
+<div class="container-fluid" style="margin:0px;padding:0px">
+ <div class="row" style="margin:0px;padding:0px">
+      <div class="col-3 minor" id = "mobilechannel" style="margin:0px;padding:10px;background-color:#2b3b3a;padding-top:20px;">
+       <h5 style="color:#55d997" class="dekstop">Channels</h5>
+       <hr>
+      <div style="padding:5px;">
+
+         <table id="dekstopchannels" class="table table-hover table-dark scroll">
+
+          </table>
+
+       </div>
+   </div>
+
+    <div class="col-9 major" style="word-wrap:break-word;text-align:center">
+       <h3><span id="channelname" class="badge badge-pill badge-light " style="float:center;"></span></h3>
+       <div id="messages" style="overflow-x:auto;overflow-y:scroll;height:75vh">
+
+       </div>
+       <div class="alert alert-danger" id="entry" role="alert" style="display:none">
+         <h4 class="alert-heading">This channel is private!</h4>
+         <p>Enter password to continue</p>
+         <form id="channelEntry" >
+          <div class="form-group row">
+           <div class="col-6">
+             <input type="password" class="form-control" id="password" placeholder="password">
+             <small id="wrongpassword" style="color:red;display:none">Wrong password</small>
+            </div>
+           </div>
+           <button type="submit" class="btn btn-success btn-sm">Enter</button>
+         </form>
+       </div>
+      <form id="sendmessages">
+         <div class="form-group row">
+          <div class="col-10">
+            <input type="text" class="form-control" id="message" placeholder="Type a message">
+          </div>
+          <button type="button" id="sendmessage" class="btn btn-success btn-sm" disabled>Send</button>
+         </div>
+      </form>
+  </div>
+</div>
+
+{%endblock%}
+{%block escript%}
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded",()=>{
+      if(!localStorage.getItem("username")){
+        window.location.href = "http://localhost:5000/";
+      }
+      if(!localStorage.getItem("channel")){
+        window.location.href = "http://localhost:5000/";
+      }
+    });
+  </script>
+{%endblock%}
+{%block script%}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+
+<script id = "channellist" type="text/template">
+    {% raw -%}
+     {{#each values}}
+      <tr>
+        <td><button type="button" class="btn btn-link channelLink">{{this}}</button></td>
+      </tr>
+     {{/each}}
+    {%- endraw %}
+</script>
+ <script src="/static/channel.js"></script>
+ <script type="text/javascript">
+   
+ </script>
+{%endblock%}

@@ -1,0 +1,77 @@
+ @media (max-width:576px) {
+
+ }
+ @media (max-width:700px) {
+   .dekstop{
+     display:none;
+   }
+ }
+ @media (min-width:701px){
+   .mobile{
+     display:none;
+   }
+ }
+ @keyframes f1{
+   0%{
+     padding-left:0;
+   }
+   100%{
+     padding-left:30%;
+   }
+ }
+ @keyframes f2{
+   0%{
+     padding-left:60%;
+   }
+   100%{
+     padding-left:30%;
+   }
+ }
+ .left{
+   padding-left:0;
+   animation-name:f1;
+   animation-duration: 2s;
+   animation-fill-mode:forwards;
+ }
+ .right{
+   padding-left:60%;
+   animation-name:f2;
+   animation-duration: 2s;
+   animation-fill-mode:forwards;
+ }
+ .base{
+   display:none;
+   position: relative;
+   min-height: 100vh;
+ }
+ .foot{
+   background-color:#2b3b3a;
+   padding:5px;
+   bottom: 0;
+   position: relative;
+   width:100%;
+ }
+ body{
+   background-color:#000000;color:white;
+ }
+ .scroll{
+   overflow-x:  auto;
+   overflow-y: scroll;
+   height: 70vh;
+   display: block;
+
+ }
+ .circular--landscape {
+  display: inline-block;
+  position: relative;
+  width: 25vw;
+  height: 25vw;
+  overflow: hidden;
+  border-radius: 50%;
+
+}
+
+.circular--landscape img {
+  width: auto;
+  height: 100%;
+}
